@@ -15,15 +15,20 @@ class HornedBeasts extends React.Component {
             numOfHornes: this.state.numOfHornes + 1
         })
     }
+
+    showpost = () => {
+        this.props.showthepost(this.props.title);
+    }
+
     render() {
         return (
             <div>
                 <Card style={{ width: '18rem'}}>
-                    <Card.Img className='cartImg'  variant="top" src={this.props.image_url} alt={this.props.keyword}/>
+                    <Card.Img className = 'cartImg'  variant = "top" src = {this.props.url} alt = {this.props.title} onClick={this.showpost}/>
                     <Card.Body>
                         <Card.Title>{this.props.title}</Card.Title>
                         <Card.Text> {this.props.description}
-                            <br />
+                            <br/>
                             Number Of Vote {this.state.numOfHornes} ❤
                         </Card.Text>
                         <Button onClick = {this.inceaseNumberOfHorns} variant = "primary">Vote</Button>
